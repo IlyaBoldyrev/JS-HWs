@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  console.log(mathOperation(5, 3, "+")); // 8
+  console.log(mathOperation(5, 3, ":)")); // NaN
+  console.log(mathOperation(2, 8, "-")); // 6
+
+  /**
+  * Функция осуществляет математическую операцию над двумя числами.
+  * @param {number} arg1 первое число.
+  * @param {number} arg2 второе число
+  * @param {string} operation знак операции. 
+  */
+  function mathOperation (arg1, arg2, operation) {
+    switch (operation){
+      case '+':
+        return sum(arg1, arg2);
+        break;
+      case '-':
+        return difference(arg1, arg2);
+        break;
+      case '*':
+        return multiplication(arg1, arg2);
+        break;
+      case '/':
+        return quotient(arg1, arg2);
+        break;
+      default:
+        return NaN;
+    }
+  }
+
+  /**
+  * Функция складывает два числа.
+  * @param {number} num1 первое слагаемое.
+  * @param {number} num2 второе слагаемое.
+  */
+  function sum (num1, num2) {
+    return num1 + num2;
+  }
+
+  /**
+  * Функция совершает вычитаение меньшего числа из большего.
+  * @param {number} num1 первое число.
+  * @param {number} num2 второе число.
+  */
+  function difference (num1, num2) {
+    return num1 > num2 ? num1 - num2 : num2 - num1;
+  }
+
+  /**
+  * Функция умножает два числа.
+  * @param {number} num1 первый множитель.
+  * @param {number} num2 второй множитель.
+  */
+  function multiplication (num1, num2) {
+    return num1 * num2;
+  }
+
+  /**
+  * Функция совершает деление двух чисел.
+  * @param {number} делимое.
+  * @param {number} делитель.
+  */
+  function quotient (num1, num2) {
+    return num1 / num2;
+  }
+</script>
+</body>
+</html>
