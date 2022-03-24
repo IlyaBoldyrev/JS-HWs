@@ -1,78 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
-Необходимо реализовать четыре функции, каждая функция должна принимать по два
-числа и выполнять одну из операций (каждая функция выполняет одну из них):
-1. Сложение
-2. Разность
-3. Умножение
-4. Деление
-
-Необходимо сделать так, чтобы функция вернула число, например выражение
-`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
-сложения в данном примере, ваши названия функций могут отличаться).
-
-Округлять значения, которые возвращают функции не нужно, однако, обратите
-внимание на разность, функция должна вычесть из большего числа меньшее, либо
-вернуть 0, если числа равны.
-
-Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
-не нужно.
-
-Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна
+фотография используя метод filter. Исходные данные - массив products.
+2. Необходимо отсортировать массив products используя метод sort по цене,
+начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести
+отсортированный массив в консоль.
 -->
+  <script>
+    "use strict";
 
-<script>
-  "use strict";
+    const products = [
+      {
+        id: 3,
+        price: 127,
+        photos: [
+          "1.jpg",
+          "2.jpg",
+        ],
+      },
+      {
+        id: 5,
+        price: 499,
+        photos: [],
+      },
+      {
+        id: 10,
+        price: 26,
+        photos: [
+          "3.jpg",
+        ],
+      },
+      {
+        id: 8,
+        price: 78,
+      },
+    ];
+    /*
+        console.log(products.filter(function isPhotosExist(element) {
+          if ()
+        }));
+        */
+    console.log(products.filter(element => element.photos)
+      .filter(element => element.photos[0]));
 
-  console.log(sum(2, 6));
-  console.log(difference(2, 6));
-  console.log(multiplication(2, 6));
-  console.log(quotient(2, 6));
 
-  /**
-  * Функция складывает два числа.
-  * @param {number} num1 первое слагаемое.
-  * @param {number} num2 второе слагаемое.
-  */
-  function sum (num1, num2) {
-    return num1 + num2;
-  }
 
-  /**
-  * Функция совершает вычитаение меньшего числа из большего.
-  * @param {number} num1 первое число.
-  * @param {number} num2 второе число.
-  */
-  function difference (num1, num2) {
-    return num1 > num2 ? num1 - num2 : num2 - num1;
-  }
-
-  /**
-  * Функция умножает два числа.
-  * @param {number} num1 первый множитель.
-  * @param {number} num2 второй множитель.
-  */
-  function multiplication (num1, num2) {
-    return num1 * num2;
-  }
-
-  /**
-  * Функция совершает деление двух чисел.
-  * @param {number} делимое.
-  * @param {number} делитель.
-  */
-  function quotient (num1, num2) {
-    return num1 / num2;
-  }
-  // проверять на деление на ноль, как я понял, не требуется
-</script>
+  </script>
 </body>
+
 </html>
