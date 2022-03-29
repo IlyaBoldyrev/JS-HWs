@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
-Для кода вставленного в теге script необходимо дать комментарии, почему мы
-получаем такой результат (в свободной форме).
-
-Подсказка. Чтобы лучше разобраться возьмите этот код и запустите в отладчике в
-браузере со включенными точками остановки.
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  let a = 1, b = 1, c, d;
+    //  ---es5---
 
-  /*
-  Приоритет операторов.
-  Сначала инкрементирование, затем присвоение значения.
-   */
-  c = ++a;
-  console.log(c);
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = price;
+    }
 
-  /*
-  Сначала присвоение значения, затем инкрементирование b.
-  То есть присваиваем единицу, но b при этом все равно
-  увеличивается и будет равняться уже двум.
-   */
-  d = b++;
-  console.log(d);
+    ProductES5.prototype.make25Discount = function () {
+      this.price = Math.round(this.price * 0.75);
+    };
 
-  /*
-  Сначала инкрементирование a, затем сложение, затем присвоение.
-  2 + 3
-   */
-  c = 2 + ++a;
-  console.log(c);
+    const someProduct = new ProductES5("bread", 75);
+    someProduct.name = "mango";
+    someProduct.price = 150;
+    someProduct.make25Discount();
+    console.log(someProduct);
 
-  /*
-  Сначала сложение, затем присвоение, в конце инкрементирование.
-  2 + 2. b при этом все равно увеличивается и будет равняться
-  уже трем
-   */
-  d = 2 + b++;
-  console.log(d);
+    //  ---es6---
 
-  console.log(a);
-  console.log(b);
-</script>
+    class ProductES6 {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+      make25Discount() {
+        this.price = Math.round(this.price * 0.75);
+      }
+    }
+
+    const someAnotherProduct = new ProductES6("bread", 75);
+    someAnotherProduct.name = "mango";
+    someAnotherProduct.price = 150;
+    someAnotherProduct.make25Discount();
+    console.log(someAnotherProduct);
+
+  </script>
 </body>
+
 </html>
